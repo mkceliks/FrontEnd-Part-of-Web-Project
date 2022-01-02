@@ -1,0 +1,93 @@
+<div class="content" >
+  <br>
+    <div class="col-md-12">
+        <div class="card" >
+            <div style="text-align: center;" class="card-header">
+                <h5 class="title">
+                    Welcome to Product Add Form Page
+                </h5>
+                
+            </div>
+       </div>
+       <br>
+        <form [formGroup]="productAddForm" class="row g-3">
+            <div class="col-md-6">
+              <label for="name" class="form-label">Product Name</label>
+              <input placeholder="Product Name" type="text" class="form-control" name="name" id="name" formControlName="name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="brandId" class="form-label">Brand of Product</label>
+                <select class="form-select" id="brandId" name="brandId" formControlName="brandId" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option *ngFor="let brands of brand" [ngValue]="brands.brandId">{{ brands.name }}</option>
+                </select>
+              </div>
+            <div  class="col-md-6">
+              <label for="price" class="form-label">Price</label>
+              <div class="input-group">
+              <span class="input-group-text" id="price">$</span>
+              <input placeholder="Price" type="number" class="form-control" name="price" id="price" formControlName="price" required>
+            </div>
+            </div>
+            <div  class="col-md-6">
+                <label for="stock" class="form-label">Number of Stocks</label>
+                <input placeholder="Number of Stocks" type="number" class="form-control" name="stock" id="stock" formControlName="stock" required>
+              </div>
+            
+            <div class="col-md-12">
+                <label for="monitor" class="form-label">Name of Monitor</label>
+                <input placeholder="Name of Monitor" type="text" class="form-control" id="monitor" name="monitor" formControlName="monitor" required>
+              </div>
+
+            <div class="col-md-4">
+              <label for="cpuId" class="form-label">CPU Type</label>
+              <select (change)="ChangeCpuId($event)" class="form-select" id="cpuId" name="cpuId" formControlName="cpuId" required>
+                <option selected disabled value="">Choose...</option>
+                <option *ngFor="let cpu of cpus" [ngValue]="cpu.cpuId">{{ cpu.name }} --> rating *{{cpu.rating}}</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+                <label for="gpuId" class="form-label">GPU Type</label>
+                <select (change)="ChangeGpuId($event)" class="form-select" id="gpuId" name="gpuId" formControlName="gpuId" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option *ngFor="let gpu of gpus" [ngValue]="gpu.gpuId">{{ gpu.name }} --> rating *{{gpu.rating}}</option>
+
+                </select>
+              </div>
+              <div class="col-md-4">
+                <label for="ramId" class="form-label">RAM Type</label>
+                <select (change)="ChangeRamId($event)" class="form-select" id="ramId" name="ramId" formControlName="ramId" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option *ngFor="let ram of rams" [ngValue]="ram.ramId">{{ ram.name }} --> rating *{{ram.rating}}</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label for="storageId" class="form-label">Storage Type</label>
+                <select class="form-select" id="storageId" name="storageId" formControlName="storageId" required>
+                  <option selected disabled value="">Choose...</option>
+                  <option *ngFor="let storage of storages" [ngValue]="storage.storageId">{{ storage.hddCapacity }}HDD + {{storage.ssdCapacity}}SSD </option>
+                </select>
+              </div>
+              <div  class="col-md-6">
+                <label for="sellerId" class="form-label">Enter Your Seller ID</label>
+                <input placeholder="Seller ID" type="number" class="form-control" name="sellerId" id="sellerId" formControlName="sellerId" required>
+              </div>
+              <div  class="col-md-6">
+                <label for="rating" class="form-label">The Rating of This Product (Out of 100)</label>
+                <input placeholder="Rating" type="number" class="form-control" name="rating" id="rating" formControlName="rating" required>
+              </div>
+
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                <label class="form-check-label" for="invalidCheck2">
+                  Agree to terms and conditions
+                </label>
+              </div>
+            </div>
+            <div style="text-align: center;" class="col-12">
+              <button class="btn btn-primary" (click)="add()">Submit form</button>
+            </div>
+          </form>
+    </div>
+</div>

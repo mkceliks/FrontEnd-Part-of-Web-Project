@@ -1,0 +1,34 @@
+
+<div class="mb-3">
+  <label for="filterText" class="form-label">Ürün Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama İfadesi Giriniz">
+</div>
+<div *ngIf="filterText" class="alert alert-primary">
+  {{filterText}} aradınız
+</div>
+
+<table class="table">
+
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Ürün İsmi</th>
+            <th scope="col">Fiyat</th>
+            <th scope="col">Genel Skor</th>
+            <th scope="col">Stok Durumu</th>
+            <th scope="col">KDV'li Fiyat</th>
+            <th scope="col"></th>
+          </tr>
+          
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products | filterPipe:filterText">
+
+          <td>{{product.name | uppercase}}</td>
+          <td>{{product.price | currency:"TRY":"₺"}}</td>
+          <td>{{product.rating}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.price | vatAdded:18 | currency:"TRY":"₺"}}</td>
+          <td><button (click)="addToCart(product)" class="btn btn-success">Sepete Ekle</button></td>
+      </tr>
+    </tbody>
+  </table>
