@@ -18,6 +18,10 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
+import { MainPageSectionComponent } from './components/main-page-section/main-page-section.component';
+import { MainCategoryComponent } from './components/main-category/main-category.component';
 
 
 @NgModule({
@@ -33,6 +37,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CartSummaryComponent,
     ProductAddComponent,
     LoginComponent,
+    RegisterComponent,
+    MainPageComponent,
+    MainPageSectionComponent,
+    MainCategoryComponent,
   ],
   imports: [
     BrowserModule,

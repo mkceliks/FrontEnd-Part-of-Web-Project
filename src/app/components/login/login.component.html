@@ -1,13 +1,6 @@
-<body class="text-center">
-  <main class="form-signin">
-    <form  [formGroup]="loginForm">
-      <img
-        class="mb-4"
-        src="/docs/5.1/assets/brand/bootstrap-logo.svg"
-        alt=""
-        width="72"
-        height="57"
-      />
+<body class="text-center py-lg-5">
+  <main class="form-signin py-5">
+    <form class="py-lg-5"  [formGroup]="loginForm">
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating">
@@ -49,7 +42,8 @@
       <button (click)="login()" class="w-100 btn btn-lg btn-primary">
         Sign in
       </button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+     <a routerLink="/register"> <button class="mt-4 btn btn-dark w-100">Don't have an account</button> </a>
+      <p class="mt-5 mb-3 text-muted">&copy; 2022 FOCUS</p>
     </form>
   </main>
 </body>

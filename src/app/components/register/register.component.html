@@ -1,0 +1,65 @@
+<body class="text-center py-lg-5">
+    <main class="form-signin py-5">
+      <form class="py-lg-5"  [formGroup]="registerForm">
+        <h1 class="h3 mb-3 fw-normal">Welcome To Register Page</h1>
+  
+        <div class="form-floating">
+          <input
+          formControlName="Name"
+            type="text"
+            class="form-control"
+            id="Name"
+            placeholder="Name"
+          />
+          <label for="Name">Name</label>
+        </div>
+        <div class="form-floating">
+            <input
+            formControlName="Surname"
+              type="text"
+              class="form-control"
+              id="Surname"
+              placeholder="Surname"
+            />
+            <label for="Name">Surname</label>
+          </div>
+          <div class="form-floating">
+            <input
+            formControlName="PhoneNumber"
+              type="text"
+              class="form-control"
+              id="PhoneNumber"
+              placeholder="PhoneNumber"
+            />
+            <label for="Name">Phone Number</label>
+          </div>
+        <div class="form-floating">
+          <input
+          formControlName="Email"
+            type="Email"
+            class="form-control"
+            id="Email"
+            placeholder="name@example.com"
+          />
+          <label for="Email">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+          formControlName="Password"
+            type="Password"
+            class="form-control"
+            id="Password"
+            placeholder="Password"
+          />
+          <label for="Password">Password</label>
+        </div>
+  
+        <button (click)="register()" class="w-100 btn btn-lg btn-primary">
+          Register
+        </button>
+        <a routerLink="/login"> <button class="mt-4 btn btn-dark w-100">Have an account</button> </a>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022 FOCUS</p>
+      </form>
+    </main>
+  </body>
+  

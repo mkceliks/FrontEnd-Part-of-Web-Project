@@ -1,34 +1,63 @@
-
-<div class="mb-3">
-  <label for="filterText" class="form-label">Ürün Ara</label>
-  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Arama İfadesi Giriniz">
+<div class="p-5">
+<div class="py-lg-5">
+  <label  for="filterText" class="form-label fw-bold">Search a Product</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Enter Your Search">
 </div>
 <div *ngIf="filterText" class="alert alert-primary">
-  {{filterText}} aradınız
+  {{filterText}} Searched.
 </div>
 
-<table class="table">
+<h3 *ngFor="let pairwithdetails of pair" style="text-align: center;" class="mb-5 fw-normal">Product of <span class="fw-bold">{{pairwithdetails.productName}}</span> Details</h3>
+
+<table style="text-align: center;" class="table">
 
     <thead class="table-dark">
         <tr>
-            <th scope="col">Ürün İsmi</th>
-            <th scope="col">Fiyat</th>
-            <th scope="col">Genel Skor</th>
-            <th scope="col">Stok Durumu</th>
-            <th scope="col">KDV'li Fiyat</th>
-            <th scope="col"></th>
+            <th scope="col">Product ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Brand Name</th>
+            <th scope="col">Monitor</th>
+            <th scope="col">Price</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Stock</th>
           </tr>
-          
     </thead>
     <tbody>
-      <tr *ngFor="let product of products | filterPipe:filterText">
-
-          <td>{{product.name | uppercase}}</td>
-          <td>{{product.price | currency:"TRY":"₺"}}</td>
-          <td>{{product.rating}}</td>
-          <td>{{product.stock}}</td>
-          <td>{{product.price | vatAdded:18 | currency:"TRY":"₺"}}</td>
-          <td><button (click)="addToCart(product)" class="btn btn-success">Sepete Ekle</button></td>
+      <tr *ngFor="let pairwithdetails of pair">
+          <td>{{pairwithdetails.productId}}</td>
+          <td>{{pairwithdetails.productName}}</td>
+          <td>{{pairwithdetails.brandName}}</td>
+          <td>{{pairwithdetails.monitor}}</td>
+          <td>{{pairwithdetails.price | currency:"TRY":"₺"}}</td>
+          <td>{{pairwithdetails.price | vatAdded:18 | currency:"TRY":"₺"}}</td>
+          <td>{{pairwithdetails.stock }}</td>
+          <!-- <td><button (click)="addToCart(details)" class="btn btn-success">Sepete Ekle</button></td> -->
       </tr>
     </tbody>
   </table>
+  <table style="text-align: center;" class="table">
+
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Product ID</th>
+        <th scope="col">CPU Name</th>
+        <th scope="col">GPU Name</th>
+        <th scope="col">RAM Name</th>
+        <th scope="col">HDD Capacity</th>
+        <th scope="col">SSD Capacity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pairwithdetails of pair">
+         <td>{{pairwithdetails.productId}}</td>
+          <td>{{pairwithdetails.cpuName}}</td>
+          <td>{{pairwithdetails.gpuName}}</td>
+          <td>{{pairwithdetails.ramName}}</td>
+          <td>{{pairwithdetails.hddCapacity}}</td>
+          <td>{{pairwithdetails.ssdCapacity}}</td>
+          <!-- <td><button (click)="addToCart(details)" class="btn btn-success">Sepete Ekle</button></td> -->
+      </tr>
+    </tbody>
+  </table>
+  
+</div>

@@ -1,0 +1,35 @@
+<div class="p-5">
+  <div class="py-lg-5">
+    <label  for="filterText" class="form-label fw-bold">Search a Product</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Enter Your Search">
+  </div>
+  
+  
+  <div style="text-align: center;" class="album py-lg-2">
+    <div class="container py-lg-2">
+ 
+  <!-- <div *ngFor="let imageproduct of images" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <img src="C:\Users\Kemal\Desktop\BytePazari\WebAPI\wwwroot\Uploads\Images\{{imageproduct.path}}" alt="">
+    <p>{{imageproduct.path}}abassa</p>
+  </div>  -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+        <div *ngFor="let product of products | filterPipe:filterText" class="col">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-text">{{product.name}}</h5>
+              <p>Price = {{product.price | currency:"TRY":"₺"}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a routerLink="/products/details/{{product.productId}}"><button type="button" class="btn btn-sm btn-outline-secondary">Details</button></a>
+                  <button (click)="addToCart(product)" type="button" class="btn btn-sm btn-success">Add to Cart</button>
+                  
+                </div>
+                <small class="text-muted">Stock = {{product.stock}}</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+    </div>
+  </div>

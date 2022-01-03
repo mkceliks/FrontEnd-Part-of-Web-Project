@@ -5,6 +5,8 @@ import { Product } from '../models/products';
 import { ListResponseModel } from '../models/listResponseModel';
 import { ResponseModel } from '../models/responseModel';
 import { Brands } from '../models/brands';
+import { ProductImage } from '../models/productImages';
+import { PairWithDetails } from '../models/details';
 
 @Injectable({
   providedIn: 'root'
@@ -22,12 +24,28 @@ export class ProductService {
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
 
   }
+
+  getImages():Observable<ListResponseModel<ProductImage>>{
+    
+    let newPath = this.apiUrl + "productimages/getall"
+
+    return this.httpClient.get<ListResponseModel<ProductImage>>(newPath)
+
+  }
   
   getProductsByBrandId(brandId:number):Observable<ListResponseModel<Product>> {
 
     let newPath = this.apiUrl + "products/getallbybrandid?brandId="+ brandId
 
     return this.httpClient.get<ListResponseModel<Product>>(newPath);
+
+  }
+  
+  getInfo(productId:number):Observable<ListResponseModel<PairWithDetails>> {
+
+    let newPath = this.apiUrl + "products/getallwithdetailsbyid?productId="+ productId
+
+    return this.httpClient.get<ListResponseModel<PairWithDetails>>(newPath);
 
   }
 

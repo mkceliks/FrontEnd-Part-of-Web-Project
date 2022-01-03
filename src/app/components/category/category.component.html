@@ -1,9 +1,11 @@
-<ul class="list-group" >
-    <li  routerLink="todos" class="list-group-item" style="cursor: pointer;">Todos</li>
-    <li  routerLink="" class="list-group-item" style="cursor: pointer;">Anasayfa</li>
+<div style="text-align: center;" class="py-lg-5">
+<ul class="list-group py-lg-5" >
+    <h2 *ngIf="currentCategory" style="text-align: center;" class="py-lg-5"> Category of {{currentCategory.name}}</h2>
+    <h2 *ngIf="!currentCategory" style="text-align: center;" class="py-lg-5">CATEGORY LIST</h2>
     <li (click)="setCurrentCategory(product)" routerLink="products/category/{{product.brandId}}"
-     *ngFor="let product of categories" [class]="getCurrentCategoryClass(product)" style="cursor: pointer;">
+     *ngFor="let product of categories" [class]="getCurrentCategoryClass(product)" class="py-lg-4" style="cursor: pointer;">
       {{product.name}}</li>
   </ul>
 
-  <h4 *ngIf="currentCategory">{{currentCategory.brandId}} seçtin reis</h4>
+  
+</div>

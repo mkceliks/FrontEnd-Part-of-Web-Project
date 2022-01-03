@@ -1,0 +1,49 @@
+
+<div class="p-5">
+<div style="text-align: center;" class="container px-4 py-lg-5 mx-auto" id="custom-cards">
+    <h2 class="pb-5 border-bottom">Categories</h2>
+
+    <div class="row row-cols-1 row-cols-lg-2 align-items-stretch g-4 py-5">
+      <div *ngFor="let brands of categories" class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h2 class="pt-2 mt-5 mb-5 display-6 lh-1 fw-bold">{{brands.name}}</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+               <a routerLink="/products/category/{{brands.brandId}}"><button class="btn btn-primary">
+                  Show
+                </button></a>
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>Brand ID = {{brands.brandId}}</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="row row-cols-1 row-cols-lg-1 align-items-stretch g-4 py-5"></div>
+      <div  class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h2 class="pt-2 mt-5 mb-5 display-6 lh-1 fw-bold">Show All Products</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+               <a routerLink="/products"><button routerLink="" class="btn btn-primary">
+                  Show
+                </button></a> 
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+                <small>&copy; 2022 FOCUS</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+     
+
+    </div>
+  </div>
