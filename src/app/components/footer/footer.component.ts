@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  // path:string;
+
+  constructor() {
+
+    
+
+   }
 
   ngOnInit(): void {
+
+    // this.pathConvert();
   }
+
+  // pathConvert(){
+
+  //   this.path = "../../../images/bytepazari.png"
+
+  // }
 
 }
